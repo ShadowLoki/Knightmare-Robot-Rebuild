@@ -13,15 +13,19 @@ public class Wheels extends Subsystem{
 	
 	private static Wheels instance;
 	
-	private Talon rudderMotor;
-	private Talon trollingMotor;
+	private Talon frontLeft;
+	private Talon backLeft;
+	private Talon frontRight;
+	private Talon backRight;
+	
 	
 	public Wheels()
 	{
 		
-		rudderMotor = new Talon(RobotConfig.get().getRUDDER_MOTOR_CHANNEL());
-		trollingMotor = new Talon(RobotConfig.get().getTROLLING_MOTOR_CHANNEL());
-		
+		frontLeft = new Talon(RobotConfig.get().getFRONT_LEFT());
+		frontRight = new Talon(RobotConfig.get().getFRONT_RIGHT());
+		backLeft = new Talon(RobotConfig.get().getBACK_LEFT());
+		backRight = new Talon(RobotConfig.get().getBACK_RIGHT());
 	}
 	public static Wheels getInstance()
 	{
@@ -33,22 +37,29 @@ public class Wheels extends Subsystem{
 		return instance;
 	}
 	
-	public void setRudder(double factor)
+	public void setFrontLeft(double factor)
 	{
-		rudderMotor.set(factor);
-		//SmartDashboard.putDouble("Rudder Motor Speed", factor);
+		frontLeft.set(factor);
 	}
 	
-	public void setTroll(double factor)
+	public void setFrontRight(double factor)
 	{
-		trollingMotor.set(factor);
-		//SmartDashboard.putDouble("Trolling Motor Speed", factor);
+		frontRight.set(factor);
+	}
+	
+	public void setBackLeft(double factor)
+	{
+		backLeft.set(factor);
+	}
+	
+	public void setBackRight(double factor)
+	{
+		backRight.set(factor);
 	}
 		
-	public void drive(double rudder, double trolling)
+	public void drive()
 	{
-		setRudder(rudder);
-		setTroll(trolling);
+		
 	}
 	
     public void initDefaultCommand() {

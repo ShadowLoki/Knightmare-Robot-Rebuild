@@ -20,7 +20,11 @@ public abstract class RobotConfig {
 		return instance;
 	}
 	
-	public abstract int getTROLLING_MOTOR_CHANNEL();
+	public abstract int getFRONT_LEFT();
 	
-	public abstract int getRUDDER_MOTOR_CHANNEL();
+	public abstract int getFRONT_RIGHT();
+	
+	public abstract int getBACK_LEFT();
+	
+	public abstract int getBACK_RIGHT();
 }

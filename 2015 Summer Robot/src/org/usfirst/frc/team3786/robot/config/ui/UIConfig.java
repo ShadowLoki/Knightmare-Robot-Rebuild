@@ -8,7 +8,7 @@ package org.usfirst.frc.team3786.robot.config.ui;
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class UIConfig {
+public abstract class UIConfig {
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -35,5 +35,28 @@ public class UIConfig {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+	
+	private static UIConfig instance;
+	
+	static {
+		instance = new CyborgUI();
+	}
+	
+	public static UIConfig get() {
+		return instance;
+	}
+	
+	/**
+	 * @return The magnitude in the Y direction that the robot should move. [-1.0, 1.0]
+	 */
+	public abstract double getDriveYValue();
+	/**
+	 * @return The magnitude in the X direction that the robot should move. [-1.0,1.0]
+	 */
+	public abstract double getDriveXValue();
+	/**
+	 * @return The speed at which the robot should rotate. [-1.0, 1.0]
+	 */
+	public abstract double getDriveRotateValue();
 }
 

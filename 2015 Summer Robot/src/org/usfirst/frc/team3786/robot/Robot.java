@@ -29,7 +29,6 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new UIConfig();
         // instantiate the command used for the autonomous period
         autonomousCommand = new TeleopCommand();
     }

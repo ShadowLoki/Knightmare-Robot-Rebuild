@@ -2,18 +2,30 @@ package org.usfirst.frc.team3786.robot.config.robot;
 
 public class PracticeConfig extends RobotConfig{
 
-	private static final int RUDDER_MOTOR_CHANNEL = 0;
-	private static final int TROLLING_MOTOR_CHANNEL = 0;
+	private static final int FRONT_RIGHT_CHANNEL = 0;
+	private static final int FRONT_LEFT_CHANNEL = 0;
+	private static final int BACK_RIGHT_CHANNEL = 0;
+	private static final int BACK_LEFT_CHANNEL = 0;
 	
 	@Override 
-	public int getTROLLING_MOTOR_CHANNEL()
+	public int getFRONT_LEFT()
 	{
-		return TROLLING_MOTOR_CHANNEL;
+		return FRONT_LEFT_CHANNEL;
 	}
 	
 	@Override
-	public int getRUDDER_MOTOR_CHANNEL()
+	public int getFRONT_RIGHT()
 	{
-		return RUDDER_MOTOR_CHANNEL;
+		return FRONT_RIGHT_CHANNEL;
+	}
+
+	@Override
+	public int getBACK_LEFT() {
+		return BACK_LEFT_CHANNEL;
+	}
+
+	@Override
+	public int getBACK_RIGHT() {
+		return BACK_RIGHT_CHANNEL;
 	}
 }
