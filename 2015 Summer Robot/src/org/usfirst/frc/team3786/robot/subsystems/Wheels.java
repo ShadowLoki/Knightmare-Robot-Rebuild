@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3786.robot.subsystems;
 
-import org.usfirst.frc.team3786.robot.commands.teleop.TeleopCommand;
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopDriveCommand;
 //import org.usfirst.frc.team3786.robot.commands.teleop.TeleopDriveCommand;
 import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
 //import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
@@ -9,24 +9,30 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+/**
+ * 
+ * @author manpreet
+ *
+ */
 public class Wheels extends Subsystem{
+	
+	//Constructor
+	public Wheels()
+	{
+		leftMaster = new Talon(RobotConfig.get().getLEFT_MASTER());
+		rightMaster = new Talon(RobotConfig.get().getRIGHT_MASTER());
+		leftSlave = new Talon(RobotConfig.get().getLEFT_SLAVE());
+		rightSlave = new Talon(RobotConfig.get().getRIGHT_SLAVE());
+	}
 	
 	private static Wheels instance;
 	
-	private Talon frontLeft;
-	private Talon backLeft;
-	private Talon frontRight;
-	private Talon backRight;
+	// Motor Declarations
+	private Talon leftMaster;
+	private Talon leftSlave;
+	private Talon rightMaster;
+	private Talon rightSlave;
 	
-	
-	public Wheels()
-	{
-		
-		frontLeft = new Talon(RobotConfig.get().getFRONT_LEFT());
-		frontRight = new Talon(RobotConfig.get().getFRONT_RIGHT());
-		backLeft = new Talon(RobotConfig.get().getBACK_LEFT());
-		backRight = new Talon(RobotConfig.get().getBACK_RIGHT());
-	}
 	public static Wheels getInstance()
 	{
 		if (instance == null)
@@ -37,33 +43,36 @@ public class Wheels extends Subsystem{
 		return instance;
 	}
 	
-	public void setFrontLeft(double factor)
+	/**
+	 * @param speed Set the value to output to the right master and slave motors.
+	 */
+	public void setLeftSpeed(double speed)
 	{
-		frontLeft.set(factor);
+		leftMaster.set(speed);
+		leftSlave.set(speed);
 	}
 	
-	public void setFrontRight(double factor)
+	/**
+	 * @param speed Set the value to output to the left master and slave motors.
+	 */
+	public void setRightSpeed(double speed)
 	{
-		frontRight.set(factor);
+		rightMaster.set(speed);
+		rightSlave.set(speed);
 	}
 	
-	public void setBackLeft(double factor)
+	/**
+	 * @param rightFactor Speed Factor for the right side of the robot
+	 * @param leftFactor Speed Factor for the left side of the robot
+	 */
+	public void move(double rightFactor, double leftFactor)
 	{
-		backLeft.set(factor);
-	}
-	
-	public void setBackRight(double factor)
-	{
-		backRight.set(factor);
-	}
-		
-	public void drive()
-	{
-		
+		setRightSpeed(rightFactor);
+		setLeftSpeed(leftFactor);
 	}
 	
     public void initDefaultCommand() {
-        setDefaultCommand(new TeleopCommand());
+        setDefaultCommand(new TeleopDriveCommand());
     }
 	
 }

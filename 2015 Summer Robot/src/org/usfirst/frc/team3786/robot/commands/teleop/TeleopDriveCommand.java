@@ -4,15 +4,17 @@ package org.usfirst.frc.team3786.robot.commands.teleop;
 import edu.wpi.first.wpilibj.command.Command;
 
 //import org.usfirst.frc.team3786.robot.Robot;
-//import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
+import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
 import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 
 /**
+ * 
+ * @author manpreet
  *
  */
-public class TeleopCommand extends Command {
+public class TeleopDriveCommand extends Command {
 
-    public TeleopCommand() {
+    public TeleopDriveCommand() {
         // Use requires() here to declare subsystem dependencies
         requires(Wheels.getInstance());
     }
@@ -23,10 +25,12 @@ public class TeleopCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Wheels.getInstance().move(UIConfig.get().getRightDrive(), UIConfig.get().getLeftDrive());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	// We are never done driving
         return false;
     }
 
@@ -37,5 +41,6 @@ public class TeleopCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

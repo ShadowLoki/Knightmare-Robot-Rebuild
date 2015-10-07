@@ -1,9 +1,10 @@
 package org.usfirst.frc.team3786.robot.config.robot;
 /**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
+ * The RobotConfig is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
+ * @author manpreet
  */
 public abstract class RobotConfig {
 	
@@ -20,11 +21,11 @@ public abstract class RobotConfig {
 		return instance;
 	}
 	
-	public abstract int getFRONT_LEFT();
+	public abstract int getLEFT_MASTER();
 	
-	public abstract int getFRONT_RIGHT();
+	public abstract int getRIGHT_MASTER();
 	
-	public abstract int getBACK_LEFT();
+	public abstract int getLEFT_SLAVE();
 	
-	public abstract int getBACK_RIGHT();
+	public abstract int getRIGHT_SLAVE();
 }

@@ -7,6 +7,7 @@ package org.usfirst.frc.team3786.robot.config.ui;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
+ * @author manpreet
  */
 public abstract class UIConfig {
     //// CREATING BUTTONS
@@ -39,24 +40,29 @@ public abstract class UIConfig {
 	private static UIConfig instance;
 	
 	static {
-		instance = new CyborgUI();
+		//instance = new CyborgUI();
+		instance = new TankDriveUI();
 	}
 	
 	public static UIConfig get() {
 		return instance;
 	}
 	
-	/**
-	 * @return The magnitude in the Y direction that the robot should move. [-1.0, 1.0]
-	 */
-	public abstract double getDriveYValue();
-	/**
-	 * @return The magnitude in the X direction that the robot should move. [-1.0,1.0]
-	 */
-	public abstract double getDriveXValue();
-	/**
-	 * @return The speed at which the robot should rotate. [-1.0, 1.0]
-	 */
-	public abstract double getDriveRotateValue();
+	public abstract double getLeftDrive();
+	
+	public abstract double getRightDrive();
+//	
+//	/**
+//	 * @return The magnitude in the Y direction that the robot should move. [-1.0, 1.0]
+//	 */
+//	public abstract double getDriveYValue();
+//	/**
+//	 * @return The magnitude in the X direction that the robot should move. [-1.0,1.0]
+//	 */
+//	public abstract double getDriveXValue();
+//	/**
+//	 * @return The speed at which the robot should rotate. [-1.0, 1.0]
+//	 */
+//	public abstract double getDriveRotateValue();
 }
 

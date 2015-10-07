@@ -8,24 +8,24 @@ public class PracticeConfig extends RobotConfig{
 	private static final int BACK_LEFT_CHANNEL = 0;
 	
 	@Override 
-	public int getFRONT_LEFT()
+	public int getLEFT_MASTER()
 	{
 		return FRONT_LEFT_CHANNEL;
 	}
 	
 	@Override
-	public int getFRONT_RIGHT()
+	public int getRIGHT_MASTER()
 	{
 		return FRONT_RIGHT_CHANNEL;
 	}
 
 	@Override
-	public int getBACK_LEFT() {
+	public int getLEFT_SLAVE() {
 		return BACK_LEFT_CHANNEL;
 	}
 
 	@Override
-	public int getBACK_RIGHT() {
+	public int getRIGHT_SLAVE() {
 		return BACK_RIGHT_CHANNEL;
 	}
 }
