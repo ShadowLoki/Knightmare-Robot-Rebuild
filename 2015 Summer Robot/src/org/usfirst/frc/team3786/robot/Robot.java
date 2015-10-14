@@ -20,6 +20,7 @@ import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 public class Robot extends IterativeRobot {
 
 	public static final Wheels wheels = new Wheels();
+//  public static final Vision vision = new Vision();
 	public static UIConfig oi;
 
     Command autonomousCommand;
@@ -31,6 +32,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new TeleopDriveCommand();
+        // Will be used in camera 
+        //        Vision.getInstance(); 
     }
 	
 	public void disabledPeriodic() {
