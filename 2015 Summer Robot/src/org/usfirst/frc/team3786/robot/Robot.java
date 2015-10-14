@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team3786.robot.commands.teleop.TeleopDriveCommand;
 import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
+import org.usfirst.frc.team3786.robot.subsystems.Vision;
 import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 
 /**
@@ -20,7 +21,7 @@ import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 public class Robot extends IterativeRobot {
 
 	public static final Wheels wheels = new Wheels();
-//  public static final Vision vision = new Vision();
+    public static final Vision vision = new Vision();
 	public static UIConfig oi;
 
     Command autonomousCommand;

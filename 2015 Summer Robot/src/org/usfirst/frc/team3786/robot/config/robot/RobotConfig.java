@@ -28,4 +28,6 @@ public abstract class RobotConfig {
 	public abstract int getLEFT_SLAVE();
 	
 	public abstract int getRIGHT_SLAVE();
+	
+	public abstract int getMAIN_CAMERA();
 }
