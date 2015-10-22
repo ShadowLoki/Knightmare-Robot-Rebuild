@@ -28,4 +28,18 @@ public abstract class RobotConfig {
 	public abstract int getLEFT_SLAVE();
 	
 	public abstract int getRIGHT_SLAVE();
+	
+	public abstract int getSHOOTER_WHEEL();
+	
+	public abstract int getFEEDER();
+	
+	public abstract int getLIFT();
+	
+	public abstract int getVERTICAL_ENCODER_CHANNEL_A();
+	
+	public abstract int getVERTICAL_ENDOER_CHANNEL_B();
+	
+	public abstract int getLATERAL_ENCODER_CHANNEL_A();
+	
+	public abstract int getLATERAL_ENCODER_CHANNEL_B();
 }
