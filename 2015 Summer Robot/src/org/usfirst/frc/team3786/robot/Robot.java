@@ -23,7 +23,7 @@ public class Robot extends IterativeRobot {
 	public static final Wheels wheels = new Wheels();
     public static final Vision vision = new Vision();
 	public static UIConfig oi;
-
+	
     Command autonomousCommand;
 
     /**

@@ -1,2 +1,3 @@
-# RoboRIO-Projects
-A Project purely meant for Educational purposes. I only created this project to learn more about FRC Programming.
+# Knightmare Robot Rebuild 2015
+Code to run the Knightmare Robot rebuild
+"This code will run on the RoboRIO only, don't try building this onto the cRIO"
