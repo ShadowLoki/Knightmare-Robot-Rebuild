@@ -9,7 +9,7 @@ public class PracticeConfig extends RobotConfig{
 	private static final int BACK_LEFT_CHANNEL = 0;
 	private static final int MAIN_CAMERA_CHANNEL = 0;
 	
-	//Motor Channels for feeding/shooting/aiming
+	//Motor Channels for feeding/Aim/aiming
 	private static final int SHOOTING_CHANNEL = 0;
 	private static final int ROLLER_CHANNEL = 0;
 	private static final int PUSHER_CHANNEL = 0;
@@ -41,13 +41,13 @@ public class PracticeConfig extends RobotConfig{
 	public int getRIGHT_SLAVE() {
 		return BACK_RIGHT_CHANNEL;
 	}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	
 	@Override
 	public int getMAIN_CAMERA(){
 		return MAIN_CAMERA_CHANNEL;
 	}
-=======
+//=======
 
 	@Override
 	public int getSHOOTER_WHEEL() {
@@ -85,5 +85,5 @@ public class PracticeConfig extends RobotConfig{
 	}
 	
 	
->>>>>>> refs/remotes/origin/master
+//>>>>>>> refs/remotes/origin/master
 }

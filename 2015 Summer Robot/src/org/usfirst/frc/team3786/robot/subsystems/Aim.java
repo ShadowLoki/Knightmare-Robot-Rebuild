@@ -18,6 +18,8 @@ public class Aim extends Subsystem {
 	private PIDController PIDLateral;
 	private PIDController PIDVertical;
 	
+	private static Aim instance; 
+	
 	private static final double ENCODER_DISTANCE_PER_PULSE = 1.1685 * ((6 * Math.PI) / 360.0);
 	
 	public Aim() {
@@ -32,6 +34,15 @@ public class Aim extends Subsystem {
 		
 		lateral.setDistancePerPulse(ENCODER_DISTANCE_PER_PULSE);
 		vertical.setDistancePerPulse(ENCODER_DISTANCE_PER_PULSE);
+	}
+	
+	public static Aim getInstance() {
+		if (instance == null)
+		{
+			instance = new Aim();
+		}	
+		
+		return instance;
 	}
 	
 	public void random(){

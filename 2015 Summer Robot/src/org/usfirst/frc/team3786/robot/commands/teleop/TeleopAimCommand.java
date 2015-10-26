@@ -1,12 +1,14 @@
 package org.usfirst.frc.team3786.robot.commands.teleop;
 
+import org.usfirst.frc.team3786.robot.subsystems.Shooting;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class TeleopAimCommand extends Command{
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
+		requires(Shooting.getInstance());
 		
 	}
 
