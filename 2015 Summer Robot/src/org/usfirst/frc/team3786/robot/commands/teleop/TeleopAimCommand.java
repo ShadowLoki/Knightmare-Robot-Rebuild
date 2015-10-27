@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3786.robot.commands.teleop;
 
+import org.usfirst.frc.team3786.robot.subsystems.Aim;
 import org.usfirst.frc.team3786.robot.subsystems.Shooting;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,7 +9,7 @@ public class TeleopAimCommand extends Command{
 
 	@Override
 	protected void initialize() {
-		requires(Shooting.getInstance());
+		requires(Aim.getInstance());
 		
 	}
 
