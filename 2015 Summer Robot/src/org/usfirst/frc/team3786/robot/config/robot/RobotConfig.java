@@ -29,7 +29,11 @@ public abstract class RobotConfig {
 	
 	public abstract int getRIGHT_SLAVE();
 	
-	public abstract int getSHOOTER_WHEEL();
+	public abstract int getSHOOTER();
+	
+	public abstract int getVERTICAL_AIM();
+	
+	public abstract int getLATERAL_AIM();
 	
 	public abstract int getFEEDER();
 	

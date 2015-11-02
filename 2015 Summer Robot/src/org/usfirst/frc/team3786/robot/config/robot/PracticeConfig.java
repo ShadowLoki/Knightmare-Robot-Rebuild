@@ -9,13 +9,15 @@ public class PracticeConfig extends RobotConfig{
 	private static final int BACK_LEFT_CHANNEL = 0;
 	
 	//Motor Channels for feeding/shooting/aiming
-	private static final int SHOOTING_CHANNEL = 0;
+	private static final int SHOOTER_CHANNEL = 0;
 	private static final int ROLLER_CHANNEL = 0;
 	private static final int PUSHER_CHANNEL = 0;
 	
+	private static final int VERTICAL_MOTOR_CHANNEL = 0;
 	private static final int VERTICAL_ENCODER_CHANNEL_A = 0;
 	private static final int VERTICAL_ENCODER_CHANNEL_B = 0;
 	
+	private static final int LATERAL_MOTOR_CHANNEL = 0;
 	private static final int LATERAL_ENCODER_CHANNEL_A = 0;
 	private static final int LATERAL_ENCODER_CHANNEL_B = 0;
 	
@@ -39,11 +41,6 @@ public class PracticeConfig extends RobotConfig{
 	@Override
 	public int getRIGHT_SLAVE() {
 		return BACK_RIGHT_CHANNEL;
-	}
-
-	@Override
-	public int getSHOOTER_WHEEL() {
-		return SHOOTING_CHANNEL;
 	}
 
 	@Override
@@ -74,6 +71,21 @@ public class PracticeConfig extends RobotConfig{
 	@Override
 	public int getLATERAL_ENCODER_CHANNEL_B() {
 		return LATERAL_ENCODER_CHANNEL_B;
+	}
+
+	@Override
+	public int getVERTICAL_AIM() {
+		return VERTICAL_MOTOR_CHANNEL;
+	}
+
+	@Override
+	public int getLATERAL_AIM() {
+		return LATERAL_MOTOR_CHANNEL;
+	}
+
+	@Override
+	public int getSHOOTER() {
+		return SHOOTER_CHANNEL;
 	}
 	
 	
