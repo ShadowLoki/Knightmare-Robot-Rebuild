@@ -1,15 +1,16 @@
 
 package org.usfirst.frc.team3786.robot;
 
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopDriveCommand;
+import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
+import org.usfirst.frc.team3786.robot.subsystems.Aim;
+import org.usfirst.frc.team3786.robot.subsystems.Shooting;
+import org.usfirst.frc.team3786.robot.subsystems.Wheels;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
-import org.usfirst.frc.team3786.robot.commands.teleop.TeleopDriveCommand;
-import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
-import org.usfirst.frc.team3786.robot.subsystems.Vision;
-import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,7 +22,10 @@ import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 public class Robot extends IterativeRobot {
 
 	public static final Wheels wheels = new Wheels();
-    public static final Vision vision = new Vision();
+	public static final Aim aim = new Aim();
+	public static final Shooting shooting = new Shooting();
+		
+	//    public static final Vision vision = new Vision(); rip Vision Class
 	public static UIConfig oi;
 	
     Command autonomousCommand;
@@ -33,7 +37,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new TeleopDriveCommand();
-        // Will be used in camera 
         //        Vision.getInstance(); 
     }
 	

@@ -8,10 +8,10 @@ import org.usfirst.frc.team3786.robot.commands.teleop.TeleopShooterCommand;
 import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
 
 /**
- * All functions relating to Aim a ball.
+ * All functions relating to shooting a ball.
  * This includes running the feeder wheel, running the lift, and running the shooter wheel.
  * It may include functions relating to aiming the shooter.
- * @author manpreet, alexanderw
+ * @author manpreet
  */
 public class Shooting extends Subsystem {
 	
@@ -19,21 +19,10 @@ public class Shooting extends Subsystem {
 	private Talon feeder;
 	private Talon lift;
 	
-	private static Shooting instance;
-	
 	public Shooting(){
 		shooterWheel = new Talon(RobotConfig.get().getSHOOTER_WHEEL());
 		feeder = new Talon(RobotConfig.get().getFEEDER());
 		lift = new Talon(RobotConfig.get().getLIFT());
-	}
-	
-	public static Shooting getInstance() {
-		if (instance == null)
-		{
-			instance = new Shooting();
-		}	
-		
-		return instance;
 	}
 	
 	/**
