@@ -5,7 +5,7 @@ import org.usfirst.frc.team3786.robot.subsystems.Shooting;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class TeleopAimCommand extends Command{
+public class TeleopVerticalAimCommand extends Command{
 
 	@Override
 	protected void initialize() {

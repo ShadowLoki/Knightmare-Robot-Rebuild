@@ -20,7 +20,7 @@ public class Shooting extends Subsystem {
 	private Talon lift;
 	
 	public Shooting(){
-		shooterWheel = new Talon(RobotConfig.get().getSHOOTER_WHEEL());
+		shooterWheel = new Talon(RobotConfig.get().getSHOOTER());
 		feeder = new Talon(RobotConfig.get().getFEEDER());
 		lift = new Talon(RobotConfig.get().getLIFT());
 	}
