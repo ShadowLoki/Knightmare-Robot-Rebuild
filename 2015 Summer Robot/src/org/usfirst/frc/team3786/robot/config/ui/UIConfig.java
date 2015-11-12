@@ -40,7 +40,7 @@ public abstract class UIConfig {
 	private static UIConfig instance;
 	
 	static {
-		//instance = new CyborgUI();
+		//instance = new SingleJoystickDrive();
 		instance = new TankDriveUI();
 	}
 	
@@ -51,6 +51,18 @@ public abstract class UIConfig {
 	public abstract double getLeftDrive();
 	
 	public abstract double getRightDrive();
+	
+	public abstract boolean aimLeft();
+	
+	public abstract boolean aimRight();
+	
+	public abstract boolean aimUp();
+	
+	public abstract boolean aimDown();
+	
+	public abstract boolean intakeRollers();
+	
+	public abstract boolean shoot();
 //	
 //	/**
 //	 * @return The magnitude in the Y direction that the robot should move. [-1.0, 1.0]

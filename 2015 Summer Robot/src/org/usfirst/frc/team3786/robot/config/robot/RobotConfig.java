@@ -35,7 +35,7 @@ public abstract class RobotConfig {
 	
 	public abstract int getLATERAL_AIM();
 	
-	public abstract int getFEEDER();
+	public abstract int getINTAKE_ROLLER();
 	
 	public abstract int getLIFT();
 	
@@ -46,4 +46,9 @@ public abstract class RobotConfig {
 	public abstract int getLATERAL_ENCODER_CHANNEL_A();
 	
 	public abstract int getLATERAL_ENCODER_CHANNEL_B();
+	
+	public abstract int getTOP_LIMIT();
+	
+	public abstract int getBOTTOM_LIMIT();
+	
 }

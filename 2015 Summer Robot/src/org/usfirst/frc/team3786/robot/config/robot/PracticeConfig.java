@@ -10,8 +10,8 @@ public class PracticeConfig extends RobotConfig{
 	
 	//Motor Channels for feeding/shooting/aiming
 	private static final int SHOOTER_CHANNEL = 0;
-	private static final int ROLLER_CHANNEL = 0;
-	private static final int PUSHER_CHANNEL = 0;
+	private static final int INTAKE_ROLLER = 0;
+	private static final int LIFT = 0;
 	
 	private static final int VERTICAL_MOTOR_CHANNEL = 0;
 	private static final int VERTICAL_ENCODER_CHANNEL_A = 0;
@@ -20,6 +20,10 @@ public class PracticeConfig extends RobotConfig{
 	private static final int LATERAL_MOTOR_CHANNEL = 0;
 	private static final int LATERAL_ENCODER_CHANNEL_A = 0;
 	private static final int LATERAL_ENCODER_CHANNEL_B = 0;
+	
+	private static final int TOP_LIMIT = 0;
+	private static final int BOTTOM_LIMIT = 0;
+	
 	
 	@Override 
 	public int getLEFT_MASTER()
@@ -44,13 +48,13 @@ public class PracticeConfig extends RobotConfig{
 	}
 
 	@Override
-	public int getFEEDER() {
-		return ROLLER_CHANNEL;
+	public int getINTAKE_ROLLER() {
+		return INTAKE_ROLLER;
 	}
 
 	@Override
 	public int getLIFT() {
-		return PUSHER_CHANNEL;
+		return LIFT;
 	}
 
 	@Override
@@ -87,6 +91,14 @@ public class PracticeConfig extends RobotConfig{
 	public int getSHOOTER() {
 		return SHOOTER_CHANNEL;
 	}
-	
-	
+
+	@Override
+	public int getTOP_LIMIT() {
+		return TOP_LIMIT;
+	}
+
+	@Override
+	public int getBOTTOM_LIMIT() {
+		return BOTTOM_LIMIT;
+	}
 }

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3786.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -9,20 +11,32 @@ import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
 
 /**
  * All functions relating to shooting a ball.
- * This includes running the feeder wheel, running the lift, and running the shooter wheel.
- * It may include functions relating to aiming the shooter.
+ * This class can run the intake rollers, the lift, and the shooter wheel.
  * @author manpreet
  */
 public class Shooting extends Subsystem {
 	
+	public static Shooting instance;
+	
 	private Talon shooterWheel;
-	private Talon feeder;
-	private Talon lift;
+	private Relay intakeRoller;
+	private Relay lift;
+	private DigitalInput topLimit;
+	private DigitalInput bottomLimit;
 	
 	public Shooting(){
 		shooterWheel = new Talon(RobotConfig.get().getSHOOTER());
-		feeder = new Talon(RobotConfig.get().getFEEDER());
-		lift = new Talon(RobotConfig.get().getLIFT());
+		intakeRoller = new Relay(RobotConfig.get().getINTAKE_ROLLER());
+		lift = new Relay(RobotConfig.get().getLIFT());
+		
+		topLimit = new DigitalInput(RobotConfig.get().getTOP_LIMIT());
+		bottomLimit = new DigitalInput(RobotConfig.get().getBOTTOM_LIMIT());
+	}
+	
+	public static Shooting getInstance(){
+		if(instance == null)
+			instance = new Shooting();
+		return instance;
 	}
 	
 	/**
@@ -43,32 +57,49 @@ public class Shooting extends Subsystem {
 	/**
 	 * @param speed Speed the feeder motor should be running at
 	 */
-	public void setFeederSpeed(double speed) {
-		SmartDashboard.putNumber("Feeder Speed", speed);
-		feeder.set(speed);
+	public void intake() {
+		intakeRoller.set(Relay.Value.kForward);
 	}
 	
 	/**
 	 * Stop just the feeder itself
 	 */
 	public void stopFeeder() {
-		feeder.set(0.0);
+		intakeRoller.set(Relay.Value.kOff);
 	}
 	
 	/**
 	 * This is probably going to get replaced because we might use a encoder for this motor
-	 * @param speed Speed to run the Lift at (raise and lower)
 	 */
-	public void setLift(double speed) {
-		SmartDashboard.putNumber("Lift Speed", speed);
-		lift.set(speed);
+	public void liftUp() {
+		lift.set(Relay.Value.kForward);
+	}
+	
+	public void liftDown() {
+		lift.set(Relay.Value.kReverse);
 	}
 	
 	/**
 	 * Stop just the Lift itself
 	 */
 	public void stopLift() {
-		lift.set(0.0);
+		lift.set(Relay.Value.kOff);
+	}
+	
+	/**
+	 * Check to see if the lift has reached the top limit
+	 * @return Returns true if lift has reached top position, false otherwise
+	 */
+	public boolean liftUpLimit(){
+		return topLimit.get();
+	}
+	
+	/**
+	 * Check to see if the lift has reached the bottom limit
+	 * @return Returns true if lift has reached bottom position, false otherwise
+	 */
+	public boolean liftDownLimit(){
+		return bottomLimit.get();
 	}
 	
 	/**

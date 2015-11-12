@@ -7,7 +7,13 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team3786.robot.commands.teleop.TeleopDriveCommand;
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopLateralAimCommand;
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopShooterCommand;
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopVerticalAimCommand;
 import org.usfirst.frc.team3786.robot.config.ui.UIConfig;
+import org.usfirst.frc.team3786.robot.subsystems.LateralAim;
+import org.usfirst.frc.team3786.robot.subsystems.Shooting;
+import org.usfirst.frc.team3786.robot.subsystems.VerticalAim;
 import org.usfirst.frc.team3786.robot.subsystems.Wheels;
 
 /**
@@ -18,9 +24,6 @@ import org.usfirst.frc.team3786.robot.subsystems.Wheels;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
-	public static final Wheels wheels = new Wheels();
-	public static UIConfig oi;
 	
     Command autonomousCommand;
 
@@ -30,6 +33,11 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
+    	Wheels.getInstance();
+    	Shooting.getInstance();
+    	VerticalAim.getInstance();
+    	LateralAim.getInstance();
+    	
         autonomousCommand = new TeleopDriveCommand();
     }
 	
@@ -55,6 +63,10 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        Scheduler.getInstance().add(new TeleopDriveCommand());
+        Scheduler.getInstance().add(new TeleopLateralAimCommand());
+        Scheduler.getInstance().add(new TeleopVerticalAimCommand());
+        Scheduler.getInstance().add(new TeleopShooterCommand());
     }
 
     /**
@@ -62,7 +74,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	
     }
 
     /**

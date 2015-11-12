@@ -10,6 +10,8 @@ import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
 
 public class LateralAim extends  PIDSubsystem{
 	
+	private static LateralAim instance;
+	
 	private Encoder lateralEncoder;
 	private Talon lateralAimMotor;
 	
@@ -25,10 +27,12 @@ public class LateralAim extends  PIDSubsystem{
 		lateralAimMotor = new Talon(RobotConfig.get().getLATERAL_AIM());
 	}
 	
-	public void moveLeft(){
-		
+	public static LateralAim getInstance() {
+		if(instance == null)
+			instance = new LateralAim();
+		return instance;
 	}
-	
+		
 	@Override
 	protected double returnPIDInput() {
 		SmartDashboard.putNumber("Current Lateral PID Input", this.lateralEncoder.getDistance());

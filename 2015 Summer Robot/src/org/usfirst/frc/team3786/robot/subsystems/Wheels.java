@@ -16,20 +16,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Wheels extends Subsystem{
 	
-private static Wheels instance;
+	private static Wheels instance;
 	
 	// Motor Declarations
-	private Talon leftMaster;
-	private Talon leftSlave;
-	private Talon rightMaster;
-	private Talon rightSlave;
+	private Talon leftMotor;
+	private Talon rightMotor;
 	
 	//Constructor
 	public Wheels() {
-		leftMaster = new Talon(RobotConfig.get().getLEFT_MASTER());
-		rightMaster = new Talon(RobotConfig.get().getRIGHT_MASTER());
-		leftSlave = new Talon(RobotConfig.get().getLEFT_SLAVE());
-		rightSlave = new Talon(RobotConfig.get().getRIGHT_SLAVE());
+		leftMotor = new Talon(RobotConfig.get().getLEFT_MASTER());
+		rightMotor = new Talon(RobotConfig.get().getRIGHT_MASTER());
 	}
 	
 	public static Wheels getInstance() {
@@ -42,30 +38,26 @@ private static Wheels instance;
 	}
 	
 	/**
-	 * @param speed Set the value to output to the right master and slave motors.
+	 * @param speed Set the value to output to the right motor.
 	 */
 	public void setLeftSpeed(double speed) {
-		leftMaster.set(speed);
-		leftSlave.set(speed);
-		
+		leftMotor.set(speed);		
 		//For Debugging Purposes
 		SmartDashboard.putNumber("Left Side Speed", speed);
 	}
 	
 	/**
-	 * @param speed Set the value to output to the left master and slave motors.
+	 * @param speed Set the value to output to the left motor.
 	 */
 	public void setRightSpeed(double speed) {
-		rightMaster.set(speed);
-		rightSlave.set(speed);
-		
+		rightMotor.set(speed);
 		//For Debugging Purposes
 		SmartDashboard.putNumber("Right Side Speed", speed);
 	}
 	
 	/**
-	 * @param rightFactor Speed Factor for the right side of the robot
-	 * @param leftFactor Speed Factor for the left side of the robot
+	 * @param rightFactor Speed Factor for the right drive motor of the robot
+	 * @param leftFactor Speed Factor for the left drive motor of the robot
 	 */
 	public void move(double rightFactor, double leftFactor) {
 		setRightSpeed(rightFactor);

@@ -14,6 +14,8 @@ import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
  */
 public class VerticalAim extends PIDSubsystem {
 	
+	private static VerticalAim instance;
+	
 	private Encoder verticalEncoder;
 	private Talon verticalAimMotor;
 	
@@ -27,6 +29,12 @@ public class VerticalAim extends PIDSubsystem {
 		verticalEncoder = new Encoder(RobotConfig.get().getVERTICAL_ENCODER_CHANNEL_A(), RobotConfig.get().getVERTICAL_ENDOER_CHANNEL_B(), false, EncodingType.k4X);
 		
 		verticalAimMotor = new Talon(RobotConfig.get().getVERTICAL_AIM());
+	}
+	
+	public static VerticalAim getInstance() {
+		if(instance == null)
+			instance = new VerticalAim();
+		return instance;
 	}
 	
 	@Override
