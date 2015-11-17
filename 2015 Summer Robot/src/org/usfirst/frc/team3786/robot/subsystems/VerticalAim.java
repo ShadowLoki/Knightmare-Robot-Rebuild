@@ -29,6 +29,10 @@ public class VerticalAim extends PIDSubsystem {
 		verticalEncoder = new Encoder(RobotConfig.get().getVERTICAL_ENCODER_CHANNEL_A(), RobotConfig.get().getVERTICAL_ENDOER_CHANNEL_B(), false, EncodingType.k4X);
 		
 		verticalAimMotor = new Talon(RobotConfig.get().getVERTICAL_AIM());
+		
+		verticalEncoder.setDistancePerPulse(2);
+		this.setAbsoluteTolerance(0.05);
+		this.getPIDController().setContinuous(false);
 	}
 	
 	public static VerticalAim getInstance() {

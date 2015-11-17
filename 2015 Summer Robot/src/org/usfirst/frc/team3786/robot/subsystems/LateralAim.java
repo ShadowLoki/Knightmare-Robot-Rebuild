@@ -25,6 +25,10 @@ public class LateralAim extends  PIDSubsystem{
 		lateralEncoder = new Encoder(RobotConfig.get().getLATERAL_ENCODER_CHANNEL_A(), RobotConfig.get().getLATERAL_ENCODER_CHANNEL_B(), false, EncodingType.k4X);
 		
 		lateralAimMotor = new Talon(RobotConfig.get().getLATERAL_AIM());
+		
+		lateralEncoder.setDistancePerPulse(2);
+		this.setAbsoluteTolerance(0.05);
+		this.getPIDController().setContinuous(false);
 	}
 	
 	public static LateralAim getInstance() {
