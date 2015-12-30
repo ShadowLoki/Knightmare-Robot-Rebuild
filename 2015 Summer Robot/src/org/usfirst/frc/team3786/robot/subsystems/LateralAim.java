@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopLateralAimCommand;
 
 public class LateralAim extends  PIDSubsystem{
 	
@@ -52,7 +53,7 @@ public class LateralAim extends  PIDSubsystem{
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new TeleopLateralAimCommand());
 	}
 
 }

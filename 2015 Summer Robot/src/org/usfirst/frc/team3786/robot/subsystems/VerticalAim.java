@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3786.robot.commands.teleop.TeleopVerticalAimCommand;
 import org.usfirst.frc.team3786.robot.config.robot.RobotConfig;
 
 /**
@@ -55,8 +56,7 @@ public class VerticalAim extends PIDSubsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new TeleopVerticalAimCommand());
 	}
 	
 }
